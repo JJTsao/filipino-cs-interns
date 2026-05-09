@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filipino CS Interns â Available for Tech Internships in Taiwan</title>
+  <title>Filipino CS Interns – Available for Tech Internships in Taiwan</title>
   <meta name="description" content="Third-year Computer Science students from the Philippines, studying in Taiwan, seeking tech internships." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +38,7 @@
       min-height: 100vh;
     }
 
-    /* ââ HEADER âââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── HEADER ───────────────────────────────────────────────── */
     header {
       background: linear-gradient(135deg, var(--header-from) 0%, var(--header-to) 100%);
       color: #fff;
@@ -130,7 +130,7 @@
       color: rgba(255,255,255,0.9);
     }
 
-    /* ââ MAIN âââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── MAIN ─────────────────────────────────────────────────── */
     main { max-width: 1100px; margin: 0 auto; padding: 40px 20px 60px; }
 
     .section-label {
@@ -142,7 +142,7 @@
       margin-bottom: 20px;
     }
 
-    /* ââ LOADING / ERROR ââââââââââââââââââââââââââââââââââââââââ */
+    /* ── LOADING / ERROR ──────────────────────────────────────── */
     #status-msg {
       text-align: center;
       padding: 60px 20px;
@@ -159,14 +159,14 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ââ GRID âââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── GRID ─────────────────────────────────────────────────── */
     #students-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 24px;
     }
 
-    /* ââ CARD âââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── CARD ─────────────────────────────────────────────────── */
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
@@ -262,7 +262,7 @@
     .link-btn:hover { background: var(--accent); color: #fff; }
     .link-btn svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
 
-    /* ââ CTA BANNER âââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── CTA BANNER ───────────────────────────────────────────── */
     .cta-banner {
       margin-top: 56px;
       background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 100%);
@@ -286,7 +286,7 @@
     }
     .cta-btn:hover { background: var(--accent); }
 
-    /* ââ FOOTER âââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── FOOTER ───────────────────────────────────────────────── */
     footer {
       text-align: center;
       padding: 28px 20px;
@@ -295,7 +295,7 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ââ INTEREST AREA COLOURS ââââââââââââââââââââââââââââââââââ */
+    /* ── INTEREST AREA COLOURS ────────────────────────────────── */
     .area-cyber    { color: var(--cyber);    background: var(--cyber-bg);    }
     .area-game     { color: var(--game);     background: var(--game-bg);     }
     .area-web      { color: var(--web);      background: var(--web-bg);      }
@@ -325,25 +325,25 @@
 <header>
   <div class="lang-toggle">
     <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-    <button id="btn-zh" onclick="setLang('zh')">ç¹ä¸­</button>
+    <button id="btn-zh" onclick="setLang('zh')">繁中</button>
   </div>
 
   <div class="header-inner">
-    <div class="header-tag" data-i18n="headerTag">ðµð­ &nbsp;Available for Internship Â· Taiwan</div>
+    <div class="header-tag" data-i18n="headerTag">🇵🇭 &nbsp;Available for Internship · Taiwan</div>
     <h1 data-i18n-html="h1">Meet Your Next <span>Tech Intern</span></h1>
     <p data-i18n-html="headerDesc">
       These are third-year Computer Science students from the Philippines,
       currently studying at a university in Taiwan. They are fluent in
       English, eager to learn, and ready to contribute to your team.
-      We're looking for dech internship opportunities â <strong>any tech role is welcome</strong>.
+      We're looking for dech internship opportunities — <strong>any tech role is welcome</strong>.
     </p>
     <div class="header-pills">
-      <span class="header-pill" data-i18n="pill1">ð» Cybersecurity</span>
-      <span class="header-pill" data-i18n="pill2">ð® Game Dev / 3D</span>
-      <span class="header-pill" data-i18n="pill3">ð Web Development</span>
-      <span class="header-pill" data-i18n="pill4">ð± Mobile Dev</span>
-      <span class="header-pill" data-i18n="pill5">ð§ IT / Networking</span>
-      <span class="header-pill" data-i18n="pill6">ð¤ Data / AI</span>
+      <span class="header-pill" data-i18n="pill1">💻 Cybersecurity</span>
+      <span class="header-pill" data-i18n="pill2">🎮 Game Dev / 3D</span>
+      <span class="header-pill" data-i18n="pill3">🌐 Web Development</span>
+      <span class="header-pill" data-i18n="pill4">📱 Mobile Dev</span>
+      <span class="header-pill" data-i18n="pill5">🔧 IT / Networking</span>
+      <span class="header-pill" data-i18n="pill6">🤖 Data / AI</span>
     </div>
   </div>
 </header>
@@ -353,7 +353,7 @@
 
   <div id="status-msg">
     <div class="spinner"></div>
-    <span data-i18n="loading">Loading student profilesâ¦</span>
+    <span data-i18n="loading">Loading student profiles…</span>
   </div>
   <div id="students-grid" style="display:none;"></div>
 
@@ -369,52 +369,52 @@
 </main>
 
 <footer>
-  <span data-i18n="footer">Built with â¤ï¸ to help Filipino CS students find better opportunities in Taiwan.</span>
+  <span data-i18n="footer">Built with ❤️ to help Filipino CS students find better opportunities in Taiwan.</span>
 </footer>
 
 <script>
   const CONFIG = {
-    SHEET_ID: "1P_BaIG0dJlI4ES8XQ5CVH5NBDoYSFQnvsqm96BMfhhc",   // â Google Sheet ID
+    SHEET_ID: "1P_BaIG0dJlI4ES8XQ5CVH5NBDoYSFQnvsqm96BMfhhc",   // ← Google Sheet ID
   };
 
   const TRANSLATIONS = {
     en: {
-      headerTag:   "ðµð­  Available for Internship Â· Taiwan",
+      headerTag:   "🇵🇭  Available for Internship · Taiwan",
       h1:          "Meet Your Next <span>Tech Intern</span>",
-      headerDesc:  "These are third-year Computer Science students from the Philippines, currently studying at a university in Taiwan. They are fluent in English, eager to learn, and ready to contribute to your team. We're looking for tech internship opportunities â <strong>any tech role is welcome</strong>.",
-      pill1: "ð» Cybersecurity", pill2: "ð® Game Dev / 3D", pill3: "ð Web Development",
-      pill4: "ð± Mobile Dev",    pill5: "ð§ IT / Networking", pill6: "ð¤ Data / AI",
+      headerDesc:  "These are third-year Computer Science students from the Philippines, currently studying at a university in Taiwan. They are fluent in English, eager to learn, and ready to contribute to your team. We're looking for tech internship opportunities — <strong>any tech role is welcome</strong>.",
+      pill1: "💻 Cybersecurity", pill2: "🎮 Game Dev / 3D", pill3: "🌐 Web Development",
+      pill4: "📱 Mobile Dev",    pill5: "🔧 IT / Networking", pill6: "🤖 Data / AI",
       sectionLabel: "Student Profiles",
-      loading:     "Loading student profilesâ¦",
-      demoWarning: "â ï¸ Demo mode â Google Sheet not connected yet.",
+      loading:     "Loading student profiles…",
+      demoWarning: "⚠️ Demo mode — Google Sheet not connected yet.",
       demoSub:     "Set CONFIG.SHEET_ID in the HTML to load real student data.",
       noStudents:  "No student profiles submitted yet. Check back soon!",
       errorMsg:    "Could not load student data. Make sure the sheet is published publicly.",
       ctaTitle:    "Interested in working with them?",
       ctaDesc:     "Click the email icon on any student's card to reach out directly. They are available for internships starting <strong>August 2025</strong> and are based in Taiwan.",
       ctaBtn:      "Contact the Instructor",
-      footer:      "Built with â¤ï¸ to help Filipino CS students find better opportunities in Taiwan.",
+      footer:      "Built with ❤️ to help Filipino CS students find better opportunities in Taiwan.",
       btnGithub: "GitHub", btnPortfolio: "Portfolio", btnEmail: "Email",
       areas: { cyber: "Cybersecurity", game: "Game Dev / 3D", web: "Web Development", mobile: "Mobile Dev", it: "IT / Networking", data: "Data Science / AI", software: "Software Dev" }
     },
     zh: {
-      headerTag:   "ðµð­  å¯¦ç¿å¾µæã»å°ç£",
-      h1:          "èªè­ä½ çä¸ä¸ä½<span>ç§æå¯¦ç¿ç</span>",
-      headerDesc:  "éäºæ¯ä¾èªè²å¾è³çè³å·¥ç³»å¤§ä¸å­¸çï¼ç®åå¨å°ç£å°±è®ãä»åè±ææµå©ãå­¸ç¿æåº¦ç©æ¥µï¼é¨ææºåå¥½å å¥ä½ çåéãæåæ­£å¨å°æ¾ç§æç¸éçå¯¦ç¿æ©æââ<strong>ä»»ä½ç§æè·åé½æ­¡è¿</strong>ã",
-      pill1: "ð» è³è¨å®å¨", pill2: "ð® éæ²éç¼ / 3D", pill3: "ð ç¶²é éç¼",
-      pill4: "ð± è¡åæç¨", pill5: "ð§ IT / ç¶²è·¯",      pill6: "ð¤ è³æ / AI",
-      sectionLabel: "å­¸çç°¡ä»",
-      loading:     "è¼å¥å­¸çè³æä¸­â¦",
-      demoWarning: "â ï¸ ç¤ºç¯æ¨¡å¼ â Google Sheet å°æªé£çµã",
-      demoSub:     "è«å¨ HTML ä¸­è¨­å® CONFIG.SHEET_ID ä»¥è¼å¥çå¯¦å­¸çè³æã",
-      noStudents:  "ç®åå°ç¡å­¸çå¡«å¯«è³æï¼è«ç¨å¾ååä¾æ¥çï¼",
-      errorMsg:    "ç¡æ³è¼å¥å­¸çè³æï¼è«ç¢ºèªè©¦ç®è¡¨å·²è¨­çºå¬éç¼å¸ã",
-      ctaTitle:    "æèè¶£åä½åï¼",
-      ctaDesc:     "é»æä»»ä½å­¸çå¡çä¸ç Email åç¤ºå³å¯ç´æ¥è¯çµ¡ãä»åé è¨å¾ <strong>2025 å¹´ 8 æ</strong>éå§å¯¦ç¿ï¼ç®åå¨å°ç£ã",
-      ctaBtn:      "è¯çµ¡æèª²è¬å¸«",
-      footer:      "çºè²å¾è³è³å·¥å­¸çå¨å°ç£å°æ¾æ´å¥½çæ©æ â¤ï¸",
-      btnGithub: "GitHub", btnPortfolio: "ä½åé", btnEmail: "å¯ä¿¡",
-      areas: { cyber: "è³è¨å®å¨", game: "éæ²éç¼ / 3D", web: "ç¶²é éç¼", mobile: "è¡åæç¨éç¼", it: "IT / ç¶²è·¯", data: "è³æç§å­¸ / AI", software: "è»é«éç¼" }
+      headerTag:   "🇵🇭  實習徵才・台灣",
+      h1:          "認識你的下一位<span>科技實習生</span>",
+      headerDesc:  "這些是來自菲律賓的資工系大三學生，目前在台灣就讀。他們英文流利、學習態度積極，隨時準備好加入你的團隊。我們正在尋找科技相關的實習機會——<strong>任何科技職務都歡迎</strong>。",
+      pill1: "💻 資訊安全", pill2: "🎮 遊戲開發 / 3D", pill3: "🌐 網頁開發",
+      pill4: "📱 行動應用", pill5: "🔧 IT / 網路",      pill6: "🤖 資料 / AI",
+      sectionLabel: "學生簡介",
+      loading:     "載入學生資料中…",
+      demoWarning: "⚠️ 示範模式 — Google Sheet 尚未連結。",
+      demoSub:     "請在 HTML 中設定 CONFIG.SHEET_ID 以載入真實學生資料。",
+      noStudents:  "目前尚無學生填寫資料，請稍後再回來查看！",
+      errorMsg:    "無法載入學生資料，請確認試算表已設為公開發布。",
+      ctaTitle:    "有興趣合作嗎？",
+      ctaDesc:     "點擊任何學生卡片上的 Email 圖示即可直接聯絡。他們預計從 <strong>2025 年 8 月</strong>開始實習，目前在台灣。",
+      ctaBtn:      "聯絡授課講師",
+      footer:      "為菲律賓資工學生在台灣尋找更好的機會 ❤️",
+      btnGithub: "GitHub", btnPortfolio: "作品集", btnEmail: "寄信",
+      areas: { cyber: "資訊安全", game: "遊戲開發 / 3D", web: "網頁開發", mobile: "行動應用開發", it: "IT / 網路", data: "資料科學 / AI", software: "軟體開發" }
     }
   };
 
