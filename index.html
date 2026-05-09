@@ -335,7 +335,7 @@
       These are third-year Computer Science students from the Philippines,
       currently studying at a university in Taiwan. They are fluent in
       English, eager to learn, and ready to contribute to your team.
-      We're looking for dech internship opportunities — <strong>any tech role is welcome</strong>.
+      We're looking for tech internship opportunities — <strong>any tech role is welcome</strong>.
     </p>
     <div class="header-pills">
       <span class="header-pill" data-i18n="pill1">💻 Cybersecurity</span>
@@ -374,7 +374,7 @@
 
 <script>
   const CONFIG = {
-    SHEET_ID: "1P_BaIG0dJlI4ES8XQ5CVH5NBDoYSFQnvsqm96BMfhhc",   // ← Google Sheet ID
+    SHEET_ID: "2PACX-1vQ1N38159PcbRQi9LMXM6N-sqo5hulBpkKCChsAZFspctHQOSYj9LyR3A__DzJblY3nSmfHbwhTrbJ8",   // ← Google Sheet publish ID (from Publish to the web)
   };
 
   const TRANSLATIONS = {
@@ -535,7 +535,7 @@
       return;
     }
     try {
-      const res = await fetch(`https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/pub?output=csv`);
+      const res = await fetch(`https://docs.google.com/spreadsheets/d/e/${CONFIG.SHEET_ID}/pub?output=csv`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const students = parseCsv(await res.text()).slice(1).map(sheetRowToStudent).filter(s => s.name);
       if (!students.length) { document.getElementById("status-msg").innerHTML = `<p>${t.noStudents}</p>`; return; }
