@@ -3,116 +3,549 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filipino CS Interns – Available for Tech Internships in Taiwan</title>
+  <title>Filipino CS Interns â Available for Tech Internships in Taiwan</title>
   <meta name="description" content="Third-year Computer Science students from the Philippines, studying in Taiwan, seeking tech internships." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #f4f6fb; --card-bg: #ffffff; --header-from: #1a237e; --header-to: #283593;
-      --accent: #3949ab; --accent-light: #e8eaf6; --text: #1c1c2e; --muted: #6b7280;
-      --border: #e5e7eb; --radius: 14px; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --bg: #f4f6fb;
+      --card-bg: #ffffff;
+      --header-from: #1a237e;
+      --header-to: #283593;
+      --accent: #3949ab;
+      --accent-light: #e8eaf6;
+      --text: #1c1c2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --radius: 14px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
       --shadow-hover: 0 8px 28px rgba(57,73,171,0.18);
-      --cyber: #e53935; --cyber-bg: #ffeaea; --game: #8e24aa; --game-bg: #f3e5f5;
-      --web: #1e88e5; --web-bg: #e3f2fd; --mobile: #43a047; --mobile-bg: #e8f5e9;
-      --it: #00897b; --it-bg: #e0f2f1; --data: #f57c00; --data-bg: #fff3e0;
+
+      --cyber: #e53935;    --cyber-bg: #ffeaea;
+      --game: #8e24aa;     --game-bg: #f3e5f5;
+      --web: #1e88e5;      --web-bg: #e3f2fd;
+      --mobile: #43a047;   --mobile-bg: #e8f5e9;
+      --it: #00897b;       --it-bg: #e0f2f1;
+      --data: #f57c00;     --data-bg: #fff3e0;
       --software: #546e7a; --software-bg: #eceff1;
     }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-    header { background: linear-gradient(135deg, var(--header-from) 0%, var(--header-to) 100%); color: #fff; padding: 56px 24px 48px; text-align: center; position: relative; overflow: hidden; }
-    header::before { content: ""; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-    .lang-toggle { position: absolute; top: 18px; right: 20px; display: flex; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); border-radius: 99px; overflow: hidden; z-index: 10; }
-    .lang-toggle button { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 0.78rem; font-weight: 700; padding: 6px 14px; cursor: pointer; transition: background 0.2s, color 0.2s; letter-spacing: 0.04em; }
-    .lang-toggle button.active { background: rgba(255,255,255,0.25); color: #fff; }
-    .lang-toggle button:hover:not(.active) { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.9); }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ââ HEADER âââââââââââââââââââââââââââââââââââââââââââââââââ */
+    header {
+      background: linear-gradient(135deg, var(--header-from) 0%, var(--header-to) 100%);
+      color: #fff;
+      padding: 56px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Language toggle button */
+    .lang-toggle {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      display: flex;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 99px;
+      overflow: hidden;
+      z-index: 10;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .lang-toggle button.active {
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+    }
+    .lang-toggle button:hover:not(.active) {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.9);
+    }
+
     .header-inner { position: relative; max-width: 760px; margin: 0 auto; }
-    .header-tag { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 99px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 14px; margin-bottom: 18px; color: rgba(255,255,255,0.9); }
-    header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .header-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.9);
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
     header h1 span { color: #90caf9; }
-    header p { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 24px; }
-    .header-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 8px; }
-    .header-pill { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 99px; padding: 5px 14px; font-size: 0.82rem; color: rgba(255,255,255,0.9); }
+    header p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+    .header-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .header-pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 99px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ââ MAIN âââââââââââââââââââââââââââââââââââââââââââââââââââ */
     main { max-width: 1100px; margin: 0 auto; padding: 40px 20px 60px; }
-    .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-    #status-msg { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 1rem; }
-    .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    /* ââ LOADING / ERROR ââââââââââââââââââââââââââââââââââââââââ */
+    #status-msg {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
     @keyframes spin { to { transform: rotate(360deg); } }
-    #students-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-    .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+
+    /* ââ GRID âââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    #students-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    /* ââ CARD âââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
     .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
     .card-top { height: 6px; width: 100%; }
     .card-body { padding: 22px 22px 18px; flex: 1; }
-    .card-avatar-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-    .avatar { width: 62px; height: 62px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); flex-shrink: 0; background: var(--accent-light); }
+
+    .card-avatar-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .avatar {
+      width: 62px; height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      background: var(--accent-light);
+    }
     .card-name-block { flex: 1; min-width: 0; }
-    .card-name { font-size: 1.05rem; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 99px; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
-    .card-bio { font-size: 0.88rem; color: var(--muted); line-height: 1.55; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 99px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .card-bio {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
     .skills-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-    .skill-tag { font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 6px; background: var(--accent-light); color: var(--accent); border: 1px solid rgba(57,73,171,0.15); }
-    .card-links { display: flex; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 14px; }
-    .link-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 0.78rem; font-weight: 600; padding: 5px 12px; border-radius: 8px; text-decoration: none; transition: background 0.15s, color 0.15s; color: var(--accent); background: var(--accent-light); border: 1px solid rgba(57,73,171,0.15); }
+    .skill-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid rgba(57,73,171,0.15);
+    }
+
+    .card-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid rgba(57,73,171,0.15);
+    }
     .link-btn:hover { background: var(--accent); color: #fff; }
     .link-btn svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
-    .cta-banner { margin-top: 56px; background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 100%); border: 1px solid #c5cae9; border-radius: var(--radius); padding: 36px 32px; text-align: center; }
+
+    /* ââ CTA BANNER âââââââââââââââââââââââââââââââââââââââââââââ */
+    .cta-banner {
+      margin-top: 56px;
+      background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 100%);
+      border: 1px solid #c5cae9;
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      text-align: center;
+    }
     .cta-banner h2 { font-size: 1.35rem; font-weight: 800; color: var(--header-from); margin-bottom: 10px; }
     .cta-banner p { font-size: 0.95rem; color: #374151; line-height: 1.6; max-width: 520px; margin: 0 auto 20px; }
-    .cta-btn { display: inline-block; background: var(--header-from); color: #fff; font-weight: 700; font-size: 0.9rem; padding: 11px 26px; border-radius: 99px; text-decoration: none; transition: background 0.2s; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--header-from);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 11px 26px;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
     .cta-btn:hover { background: var(--accent); }
-    footer { text-align: center; padding: 28px 20px; color: var(--muted); font-size: 0.82rem; border-top: 1px solid var(--border); }
-    .area-cyber{color:var(--cyber);background:var(--cyber-bg);}.area-game{color:var(--game);background:var(--game-bg);}.area-web{color:var(--web);background:var(--web-bg);}.area-mobile{color:var(--mobile);background:var(--mobile-bg);}.area-it{color:var(--it);background:var(--it-bg);}.area-data{color:var(--data);background:var(--data-bg);}.area-software{color:var(--software);background:var(--software-bg);}
-    .top-cyber{background:var(--cyber);}.top-game{background:var(--game);}.top-web{background:var(--web);}.top-mobile{background:var(--mobile);}.top-it{background:var(--it);}.top-data{background:var(--data);}.top-software{background:var(--software);}
-    @media(max-width:480px){header{padding:48px 16px 36px;}.lang-toggle{top:12px;right:12px;}main{padding:28px 14px 48px;}.cta-banner{padding:28px 20px;}}
+
+    /* ââ FOOTER âââââââââââââââââââââââââââââââââââââââââââââââââ */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ââ INTEREST AREA COLOURS ââââââââââââââââââââââââââââââââââ */
+    .area-cyber    { color: var(--cyber);    background: var(--cyber-bg);    }
+    .area-game     { color: var(--game);     background: var(--game-bg);     }
+    .area-web      { color: var(--web);      background: var(--web-bg);      }
+    .area-mobile   { color: var(--mobile);   background: var(--mobile-bg);   }
+    .area-it       { color: var(--it);       background: var(--it-bg);       }
+    .area-data     { color: var(--data);     background: var(--data-bg);     }
+    .area-software { color: var(--software); background: var(--software-bg); }
+
+    .top-cyber    { background: var(--cyber);    }
+    .top-game     { background: var(--game);     }
+    .top-web      { background: var(--web);      }
+    .top-mobile   { background: var(--mobile);   }
+    .top-it       { background: var(--it);       }
+    .top-data     { background: var(--data);     }
+    .top-software { background: var(--software); }
+
+    @media (max-width: 480px) {
+      header { padding: 48px 16px 36px; }
+      .lang-toggle { top: 12px; right: 12px; }
+      main { padding: 28px 14px 48px; }
+      .cta-banner { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
+
 <header>
   <div class="lang-toggle">
     <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-    <button id="btn-zh" onclick="setLang('zh')">繁中</button>
+    <button id="btn-zh" onclick="setLang('zh')">ç¹ä¸­</button>
   </div>
+
   <div class="header-inner">
-    <div class="header-tag" data-i18n="headerTag">🇵🇭 &nbsp;Available for Internship · Taiwan</div>
+    <div class="header-tag" data-i18n="headerTag">ðµð­ &nbsp;Available for Internship Â· Taiwan</div>
     <h1 data-i18n-html="h1">Meet Your Next <span>Tech Intern</span></h1>
-    <p data-i18n-html="headerDesc">These are third-year Computer Science students from the Philippines, currently studying at a university in Taiwan. They are fluent in English, eager to learn, and ready to contribute to your team. We're looking for tech internship opportunities — <strong>any tech role is welcome</strong>.</p>
+    <p data-i18n-html="headerDesc">
+      These are third-year Computer Science students from the Philippines,
+      currently studying at a university in Taiwan. They are fluent in
+      English, eager to learn, and ready to contribute to your team.
+      We're looking for dech internship opportunities â <strong>any tech role is welcome</strong>.
+    </p>
     <div class="header-pills">
-      <span class="header-pill" data-i18n="pill1">💻 Cybersecurity</span>
-      <span class="header-pill" data-i18n="pill2">🎮 Game Dev / 3D</span>
-      <span class="header-pill" data-i18n="pill3">🌐 Web Development</span>
-      <span class="header-pill" data-i18n="pill4">📱 Mobile Dev</span>
-      <span class="header-pill" data-i18n="pill5">🔧 IT / Networking</span>
-      <span class="header-pill" data-i18n="pill6">🤖 Data / AI</span>
+      <span class="header-pill" data-i18n="pill1">ð» Cybersecurity</span>
+      <span class="header-pill" data-i18n="pill2">ð® Game Dev / 3D</span>
+      <span class="header-pill" data-i18n="pill3">ð Web Development</span>
+      <span class="header-pill" data-i18n="pill4">ð± Mobile Dev</span>
+      <span class="header-pill" data-i18n="pill5">ð§ IT / Networking</span>
+      <span class="header-pill" data-i18n="pill6">ð¤ Data / AI</span>
     </div>
   </div>
 </header>
+
 <main>
   <div class="section-label" data-i18n="sectionLabel">Student Profiles</div>
-  <div id="status-msg"><div class="spinner"></div><span data-i18n="loading">Loading student profiles…</span></div>
+
+  <div id="status-msg">
+    <div class="spinner"></div>
+    <span data-i18n="loading">Loading student profilesâ¦</span>
+  </div>
   <div id="students-grid" style="display:none;"></div>
+
   <div class="cta-banner">
     <h2 data-i18n="ctaTitle">Interested in working with them?</h2>
-    <p data-i18n-html="ctaDesc">Click the email icon on any student card to reach out directly. They are available for internships starting <strong>August 2025</strong> and are based in Taiwan.</p>
+    <p data-i18n-html="ctaDesc">
+      Click the email icon on any student's card to reach out directly.
+      They are available for internships starting <strong>August 2025</strong>
+      and are based in Taiwan.
+    </p>
     <a class="cta-btn" href="mailto:jonah6313@gmail.com" data-i18n="ctaBtn">Contact the Instructor</a>
   </div>
 </main>
-<footer><span data-i18n="footer">Built with ❤️ to help Filipino CS students find better opportunities in Taiwan.</span></footer>
+
+<footer>
+  <span data-i18n="footer">Built with â¤ï¸ to help Filipino CS students find better opportunities in Taiwan.</span>
+</footer>
+
 <script>
-const CONFIG={SHEET_ID:"1P_BaIG0dJlI4ES8XQ5CVH5NBDoYSFQnvsqm96BMfhhc"};
-const TRANSLATIONS={en:{headerTag:"🇵🇭  Available for Internship · Taiwan",h1:"Meet Your Next <span>Tech Intern</span>",headerDesc:"These are third-year Computer Science students from the Philippines, currently studying at a university in Taiwan. They are fluent in English, eager to learn, and ready to contribute to your team. We're looking for tech internship opportunities — <strong>any tech role is welcome</strong>.",pill1:"💻 Cybersecurity",pill2:"🎮 Game Dev / 3D",pill3:"🌐 Web Development",pill4:"📱 Mobile Dev",pill5:"🔧 IT / Networking",pill6:"🤖 Data / AI",sectionLabel:"Student Profiles",loading:"Loading student profiles…",demoWarning:"⚠️ Demo mode — Google Sheet not connected yet.",demoSub:"Set CONFIG.SHEET_ID in the HTML to load real student data.",noStudents:"No student profiles submitted yet. Check back soon!",errorMsg:"Could not load student data. Make sure the sheet is published publicly.",ctaTitle:"Interested in working with them?",ctaDesc:"Click the email icon on any student card to reach out directly. They are available for internships starting <strong>August 2025</strong> and are based in Taiwan.",ctaBtn:"Contact the Instructor",footer:"Built with ❤️ to help Filipino CS students find better opportunities in Taiwan.",btnGithub:"GitHub",btnPortfolio:"Portfolio",btnEmail:"Email",areas:{cyber:"Cybersecurity",game:"Game Dev / 3D",web:"Web Development",mobile:"Mobile Dev",it:"IT / Networking",data:"Data Science / AI",software:"Software Dev"}},zh:{headerTag:"🇵🇭  實習徵才・台灣",h1:"認識你的下一位<span>科技實習生</span>",headerDesc:"這些是來自菲律賓的資工系大三學生，目前在台灣就讀。他們英文流利、學習態度積極，隨時準備好加入你的團隊。我們正在尋找科技相關的實習機會——<strong>任何科技職務都歡迎</strong>。",pill1:"💻 資訊安全",pill2:"🎮 遊戲開發 / 3D",pill3:"🌐 網頁開發",pill4:"📱 行動應用",pill5:"🔧 IT / 網路",pill6:"🤖 資料 / AI",sectionLabel:"學生簡介",loading:"載入學生資料中…",demoWarning:"⚠️ 示範模式 — Google Sheet 尚未連結。",demoSub:"請在 HTML 中設定 CONFIG.SHEET_ID 以載入真實學生資料。",noStudents:"目前尚無學生填寫資料，請稍後再回來查看！",errorMsg:"無法載入學生資料，請確認試算表已設為公開發布。",ctaTitle:"有興趣合作嗎？",ctaDesc:"點擊任何學生卡片上的 Email 圖示即可直接聯絡。他們預計從 <strong>2025 年 8 月</strong>開始實習，目前在台灣。",ctaBtn:"聯絡授課講師",footer:"為菲律賓資工學生在台灣尋找更好的機會 ❤️",btnGithub:"GitHub",btnPortfolio:"作品集",btnEmail:"寄信",areas:{cyber:"資訊安全",game:"遊戲開發 / 3D",web:"網頁開發",mobile:"行動應用開發",it:"IT / 網路",data:"資料科學 / AI",software:"軟體開發"}}};
-let currentLang="en";
-function setLang(lang){currentLang=lang;const t=TRANSLATIONS[lang];document.getElementById("btn-en").classList.toggle("active",lang==="en");document.getElementById("btn-zh").classList.toggle("active",lang==="zh");document.documentElement.lang=lang==="zh"?"zh-TW":"en";document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.getAttribute("data-i18n");if(t[key]!==undefined)el.textContent=t[key];});document.querySelectorAll("[data-i18n-html]").forEach(el=>{const key=el.getAttribute("data-i18n-html");if(t[key]!==undefined)el.innerHTML=t[key];});const grid=document.getElementById("students-grid");if(grid.style.display!=="none"&&grid.dataset.students){grid.innerHTML=JSON.parse(grid.dataset.students).map(buildCard).join("");}}
-const DEMO_STUDENTS=[{name:"Maria Santos",github:"mariasantos",skills:["Python","Linux","Wireshark","Networking"],area:"Cybersecurity",portfolio:"",email:"maria@example.com",bio:"Passionate about ethical hacking and network security."},{name:"Juan dela Cruz",github:"juandelacruz",skills:["Unity","C#","Blender","Unreal Engine"],area:"Game Dev / 3D Modeling",portfolio:"https://juanportfolio.example.com",email:"juan@example.com",bio:"Created two indie games as side projects."},{name:"Ana Reyes",github:"anareyes",skills:["React","Node.js","TypeScript","PostgreSQL"],area:"Web Development",portfolio:"https://anaportfolio.example.com",email:"ana@example.com",bio:"Full-stack developer who has built several web apps."},{name:"Carlo Mendoza",github:"carlomendoza",skills:["Cisco","Windows Server","Linux","VMware"],area:"IT / Networking",portfolio:"",email:"carlo@example.com",bio:"Hands-on experience with network configuration."},{name:"Sophia Garcia",github:"sophiagarcia",skills:["Python","TensorFlow","SQL","Pandas"],area:"Data Science / AI",portfolio:"https://sophiads.example.com",email:"sophia@example.com",bio:"Built machine learning models for class projects."},{name:"Miguel Torres",github:"migueltorres",skills:["Flutter","Dart","Firebase","Android"],area:"Mobile Development",portfolio:"",email:"miguel@example.com",bio:"Developed a mobile app for campus announcements."}];
-function areaClass(area){const a=(area||"").toLowerCase();if(a.includes("cyber")||a.includes("security"))return"cyber";if(a.includes("game")||a.includes("3d"))return"game";if(a.includes("web"))return"web";if(a.includes("mobile")||a.includes("android")||a.includes("ios"))return"mobile";if(a.includes("it")||a.includes("network"))return"it";if(a.includes("data")||a.includes("ai")||a.includes("ml"))return"data";return"software";}
-function areaLabel(area){return TRANSLATIONS[currentLang].areas[areaClass(area)]||area;}
-const ICON_GITHUB='<svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>';
-const ICON_LINK='<svg viewBox="0 0 24 24"><path d="M14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V7.414l-7.293 7.293a1 1 0 0 1-1.414-1.414L15.586 6H14a1 1 0 0 1-1-1zM5 7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4a1 1 0 1 1 2 0v4a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h4a1 1 0 1 1 0 2H5z"/></svg>';
-const ICON_MAIL='<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9.236l8 5 8-5V18z"/></svg>';
-function buildCard(s){const t=TRANSLATIONS[currentLang];const cls=areaClass(s.area);const avatar=s.github?"https://avatars.githubusercontent.com/"+encodeURIComponent(s.github)+"?s=200":"https://api.dicebear.com/7.x/initials/svg?seed="+encodeURIComponent(s.name)+"&backgroundColor=3949ab&textColor=ffffff";const skillTags=(Array.isArray(s.skills)?s.skills:[]).map(sk=>'<span class="skill-tag">'+escHtml(sk.trim())+"</span>").join("");const githubBtn=s.github?'<a class="link-btn" href="https://github.com/'+encodeURIComponent(s.github)+'" target="_blank" rel="noopener">'+ICON_GITHUB+" "+t.btnGithub+"</a>":"";const portfolioBtn=s.portfolio?'<a class="link-btn" href="'+escAttr(s.portfolio)+'" target="_blank" rel="noopener">'+ICON_LINK+" "+t.btnPortfolio+"</a>":"";const emailBtn=s.email?'<a class="link-btn" href="mailto:'+escAttr(s.email)+'">'+ICON_MAIL+" "+t.btnEmail+"</a>":"";const bioHtml=s.bio?'<p class="card-bio">'+escHtml(s.bio)+"</p>":"";return'<div class="card"><div class="card-top top-'+cls+'"></div><div class="card-body"><div class="card-avatar-row"><img class="avatar" src="'+avatar+'" alt="'+escAttr(s.name)+'" loading="lazy" onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed='+encodeURIComponent(s.name)+"&backgroundColor=3949ab&textColor=ffffff'" /><div class="card-name-block"><div class="card-name">"+escHtml(s.name)+'</div><span class="badge area-'+cls+'">'+escHtml(areaLabel(s.area))+"</span></div></div>"+bioHtml+'<div class="skills-wrap">'+skillTags+'</div></div><div class="card-body" style="padding-top:0"><div class="card-links">'+githubBtn+portfolioBtn+emailBtn+"</div></div></div>";}
-function escHtml(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
-function escAttr(s){return escHtml(s);}
-function renderStudents(students){const grid=document.getElementById("students-grid");document.getElementById("status-msg").style.display="none";grid.style.display="grid";grid.dataset.students=JSON.stringify(students);grid.innerHTML=students.map(buildCard).join("");}
-function parseCsv(text){const rows=[];for(const line of text.split("\n")){if(!line.trim())continue;const row=[];let cur="",inQ=false;for(const ch of line){if(ch==='"'){inQ=!inQ;continue;}if(ch===","&&!inQ){row.push(cur);cur="";continue;}cur+=ch;}row.push(cur);rows.push(row);}return rows;}
-function sheetRowToStudent(row){return{name:(row[1]||"").trim(),github:(row[2]||"").trim(),skills:(row[3]||"").split(",").map(s=>s.trim()).filter(Boolean),area:(row[4]||"").trim(),portfolio:(row[5]||"").trim(),email:(row[6]||"").trim(),bio:(row[7]||"").trim()};}
-(async function init(){const t=TRANSLATIONS[currentLang];if(!CONFIG.SHEET_ID){document.getElementById("status-msg").innerHTML='<p style="color:#f57c00;font-weight:600;">'+t.demoWarning+'</p><p style="font-size:0.85rem;color:#6b7280;margin-top:6px;">'+t.demoSub+"</p>";setTimeout(()=>renderStudents(DEMO_STUDENTS),600);return;}try{const res=await fetch("https://docs.google.com/spreadsheets/d/"+CONFIG.SHEET_ID+"/pub?output=csv");if(!res.ok)throw new Error("HTTP "+res.status);const students=parseCsv(await res.text()).slice(1).map(sheetRowToStudent).filter(s=>s.name);if(!students.length){document.getElementById("status-msg").innerHTML="<p>"+t.noStudents+"</p>";return;}renderStudents(students);}catch(err){document.getElementById("status-msg").innerHTML='<p style="color:#e53935;">'+t.errorMsg+"<br><small>"+err.message+"</small></p>";}})();
+  const CONFIG = {
+    SHEET_ID: "1P_BaIG0dJlI4ES8XQ5CVH5NBDoYSFQnvsqm96BMfhhc",   // â Google Sheet ID
+  };
+
+  const TRANSLATIONS = {
+    en: {
+      headerTag:   "ðµð­  Available for Internship Â· Taiwan",
+      h1:          "Meet Your Next <span>Tech Intern</span>",
+      headerDesc:  "These are third-year Computer Science students from the Philippines, currently studying at a university in Taiwan. They are fluent in English, eager to learn, and ready to contribute to your team. We're looking for tech internship opportunities â <strong>any tech role is welcome</strong>.",
+      pill1: "ð» Cybersecurity", pill2: "ð® Game Dev / 3D", pill3: "ð Web Development",
+      pill4: "ð± Mobile Dev",    pill5: "ð§ IT / Networking", pill6: "ð¤ Data / AI",
+      sectionLabel: "Student Profiles",
+      loading:     "Loading student profilesâ¦",
+      demoWarning: "â ï¸ Demo mode â Google Sheet not connected yet.",
+      demoSub:     "Set CONFIG.SHEET_ID in the HTML to load real student data.",
+      noStudents:  "No student profiles submitted yet. Check back soon!",
+      errorMsg:    "Could not load student data. Make sure the sheet is published publicly.",
+      ctaTitle:    "Interested in working with them?",
+      ctaDesc:     "Click the email icon on any student's card to reach out directly. They are available for internships starting <strong>August 2025</strong> and are based in Taiwan.",
+      ctaBtn:      "Contact the Instructor",
+      footer:      "Built with â¤ï¸ to help Filipino CS students find better opportunities in Taiwan.",
+      btnGithub: "GitHub", btnPortfolio: "Portfolio", btnEmail: "Email",
+      areas: { cyber: "Cybersecurity", game: "Game Dev / 3D", web: "Web Development", mobile: "Mobile Dev", it: "IT / Networking", data: "Data Science / AI", software: "Software Dev" }
+    },
+    zh: {
+      headerTag:   "ðµð­  å¯¦ç¿å¾µæã»å°ç£",
+      h1:          "èªè­ä½ çä¸ä¸ä½<span>ç§æå¯¦ç¿ç</span>",
+      headerDesc:  "éäºæ¯ä¾èªè²å¾è³çè³å·¥ç³»å¤§ä¸å­¸çï¼ç®åå¨å°ç£å°±è®ãä»åè±ææµå©ãå­¸ç¿æåº¦ç©æ¥µï¼é¨ææºåå¥½å å¥ä½ çåéãæåæ­£å¨å°æ¾ç§æç¸éçå¯¦ç¿æ©æââ<strong>ä»»ä½ç§æè·åé½æ­¡è¿</strong>ã",
+      pill1: "ð» è³è¨å®å¨", pill2: "ð® éæ²éç¼ / 3D", pill3: "ð ç¶²é éç¼",
+      pill4: "ð± è¡åæç¨", pill5: "ð§ IT / ç¶²è·¯",      pill6: "ð¤ è³æ / AI",
+      sectionLabel: "å­¸çç°¡ä»",
+      loading:     "è¼å¥å­¸çè³æä¸­â¦",
+      demoWarning: "â ï¸ ç¤ºç¯æ¨¡å¼ â Google Sheet å°æªé£çµã",
+      demoSub:     "è«å¨ HTML ä¸­è¨­å® CONFIG.SHEET_ID ä»¥è¼å¥çå¯¦å­¸çè³æã",
+      noStudents:  "ç®åå°ç¡å­¸çå¡«å¯«è³æï¼è«ç¨å¾ååä¾æ¥çï¼",
+      errorMsg:    "ç¡æ³è¼å¥å­¸çè³æï¼è«ç¢ºèªè©¦ç®è¡¨å·²è¨­çºå¬éç¼å¸ã",
+      ctaTitle:    "æèè¶£åä½åï¼",
+      ctaDesc:     "é»æä»»ä½å­¸çå¡çä¸ç Email åç¤ºå³å¯ç´æ¥è¯çµ¡ãä»åé è¨å¾ <strong>2025 å¹´ 8 æ</strong>éå§å¯¦ç¿ï¼ç®åå¨å°ç£ã",
+      ctaBtn:      "è¯çµ¡æèª²è¬å¸«",
+      footer:      "çºè²å¾è³è³å·¥å­¸çå¨å°ç£å°æ¾æ´å¥½çæ©æ â¤ï¸",
+      btnGithub: "GitHub", btnPortfolio: "ä½åé", btnEmail: "å¯ä¿¡",
+      areas: { cyber: "è³è¨å®å¨", game: "éæ²éç¼ / 3D", web: "ç¶²é éç¼", mobile: "è¡åæç¨éç¼", it: "IT / ç¶²è·¯", data: "è³æç§å­¸ / AI", software: "è»é«éç¼" }
+    }
+  };
+
+  let currentLang = "en";
+
+  function setLang(lang) {
+    currentLang = lang;
+    const t = TRANSLATIONS[lang];
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+    document.getElementById("btn-zh").classList.toggle("active", lang === "zh");
+    document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(el => {
+      const key = el.getAttribute("data-i18n-html");
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    const grid = document.getElementById("students-grid");
+    if (grid.style.display !== "none" && grid.dataset.students) {
+      grid.innerHTML = JSON.parse(grid.dataset.students).map(buildCard).join("");
+    }
+  }
+
+  const DEMO_STUDENTS = [
+    { name: "Maria Santos",   github: "mariasantos",  skills: ["Python", "Linux", "Wireshark", "Networking"],   area: "Cybersecurity",         portfolio: "",                               email: "maria@example.com",  bio: "Passionate about ethical hacking and network security. Completed CTF competitions and self-study on penetration testing." },
+    { name: "Juan dela Cruz", github: "juandelacruz", skills: ["Unity", "C#", "Blender", "Unreal Engine"],       area: "Game Dev / 3D Modeling", portfolio: "https://juanportfolio.example.com", email: "juan@example.com",   bio: "Created two indie games as side projects. Loves building immersive 3D environments and game mechanics." },
+    { name: "Ana Reyes",      github: "anareyes",     skills: ["React", "Node.js", "TypeScript", "PostgreSQL"],  area: "Web Development",        portfolio: "https://anaportfolio.example.com", email: "ana@example.com",    bio: "Full-stack developer who has built several web apps. Enjoys clean UI design and scalable backend architecture." },
+    { name: "Carlo Mendoza",  github: "carlomendoza", skills: ["Cisco", "Windows Server", "Linux", "VMware"],    area: "IT / Networking",        portfolio: "",                               email: "carlo@example.com",  bio: "Hands-on experience with network configuration and server administration. Studying for CCNA certification." },
+    { name: "Sophia Garcia",  github: "sophiagarcia", skills: ["Python", "TensorFlow", "SQL", "Pandas"],         area: "Data Science / AI",      portfolio: "https://sophiads.example.com",    email: "sophia@example.com", bio: "Built machine learning models for class projects. Interested in NLP and data visualization." },
+    { name: "Miguel Torres",  github: "migueltorres", skills: ["Flutter", "Dart", "Firebase", "Android"],        area: "Mobile Development",     portfolio: "",                               email: "miguel@example.com", bio: "Developed a mobile app for campus announcements. Comfortable with both Android and cross-platform development." },
+  ];
+
+  function areaClass(area) {
+    const a = (area || "").toLowerCase();
+    if (a.includes("cyber") || a.includes("security")) return "cyber";
+    if (a.includes("game") || a.includes("3d"))         return "game";
+    if (a.includes("web"))                              return "web";
+    if (a.includes("mobile") || a.includes("android") || a.includes("ios")) return "mobile";
+    if (a.includes("it") || a.includes("network"))      return "it";
+    if (a.includes("data") || a.includes("ai") || a.includes("ml")) return "data";
+    return "software";
+  }
+  function areaLabel(area) { return TRANSLATIONS[currentLang].areas[areaClass(area)] || area; }
+
+  const ICON_GITHUB = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>`;
+  const ICON_LINK   = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V7.414l-7.293 7.293a1 1 0 0 1-1.414-1.414L15.586 6H14a1 1 0 0 1-1-1zM5 7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4a1 1 0 1 1 2 0v4a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h4a1 1 0 1 1 0 2H5z"/></svg>`;
+  const ICON_MAIL   = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9.236l8 5 8-5V18z"/></svg>`;
+
+  function buildCard(s) {
+    const t = TRANSLATIONS[currentLang];
+    const cls = areaClass(s.area);
+    const avatar = s.github
+      ? `https://avatars.githubusercontent.com/${encodeURIComponent(s.github)}?s=200`
+      : `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`;
+    const skillTags = (Array.isArray(s.skills) ? s.skills : []).map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
+    const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
+    const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICON_MAIL} ${t.btnEmail}</a>` : "";
+    const bioHtml     = s.bio       ? `<p class="card-bio">${escHtml(s.bio)}</p>` : "";
+    return `
+      <div class="card">
+        <div class="card-top top-${cls}"></div>
+        <div class="card-body">
+          <div class="card-avatar-row">
+            <img class="avatar" src="${avatar}" alt="${escAttr(s.name)}" loading="lazy"
+              onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff'" />
+            <div class="card-name-block">
+              <div class="card-name">${escHtml(s.name)}</div>
+              <span class="badge area-${cls}">${escHtml(areaLabel(s.area))}</span>
+            </div>
+          </div>
+          ${bioHtml}
+          <div class="skills-wrap">${skillTags}</div>
+        </div>
+        <div class="card-body" style="padding-top:0">
+          <div class="card-links">${githubBtn}${portfolioBtn}${emailBtn}</div>
+        </div>
+      </div>`;
+  }
+
+  function escHtml(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function escAttr(s) { return escHtml(s); }
+
+  function renderStudents(students) {
+    const grid = document.getElementById("students-grid");
+    document.getElementById("status-msg").style.display = "none";
+    grid.style.display = "grid";
+    grid.dataset.students = JSON.stringify(students);
+    grid.innerHTML = students.map(buildCard).join("");
+  }
+
+  function parseCsv(text) {
+    const rows = [];
+    for (const line of text.split("\n")) {
+      if (!line.trim()) continue;
+      const row = []; let cur = "", inQ = false;
+      for (const ch of line) {
+        if (ch === '"') { inQ = !inQ; continue; }
+        if (ch === "," && !inQ) { row.push(cur); cur = ""; continue; }
+        cur += ch;
+      }
+      row.push(cur); rows.push(row);
+    }
+    return rows;
+  }
+
+  function sheetRowToStudent(row) {
+    return { name: (row[1]||"").trim(), github: (row[2]||"").trim(), skills: (row[3]||"").split(",").map(s=>s.trim()).filter(Boolean), area: (row[4]||"").trim(), portfolio: (row[5]||"").trim(), email: (row[6]||"").trim(), bio: (row[7]||"").trim() };
+  }
+
+  async function init() {
+    const t = TRANSLATIONS[currentLang];
+    if (!CONFIG.SHEET_ID) {
+      document.getElementById("status-msg").innerHTML = `<p style="color:#f57c00;font-weight:600;">${t.demoWarning}</p><p style="font-size:0.85rem;color:#6b7280;margin-top:6px;">${t.demoSub}</p>`;
+      setTimeout(() => renderStudents(DEMO_STUDENTS), 600);
+      return;
+    }
+    try {
+      const res = await fetch(`https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/pub?output=csv`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const students = parseCsv(await res.text()).slice(1).map(sheetRowToStudent).filter(s => s.name);
+      if (!students.length) { document.getElementById("status-msg").innerHTML = `<p>${t.noStudents}</p>`; return; }
+      renderStudents(students);
+    } catch (err) {
+      document.getElementById("status-msg").innerHTML = `<p style="color:#e53935;">${t.errorMsg}<br><small>${err.message}</small></p>`;
+    }
+  }
+
+  init();
 </script>
 </body>
 </html>
