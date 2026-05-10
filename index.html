@@ -312,11 +312,117 @@
     .top-data     { background: var(--data);     }
     .top-software { background: var(--software); }
 
+    /* ── MODAL ────────────────────────────────────────────────── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modal-in 0.22s ease;
+    }
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(16px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0)    scale(1);    }
+    }
+
+    .modal-top { height: 8px; width: 100%; border-radius: 18px 18px 0 0; }
+
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+      z-index: 10;
+    }
+    .modal-close:hover { background: #dde; }
+
+    .modal-body { padding: 24px 26px 28px; }
+
+    .modal-avatar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .modal-avatar {
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      background: var(--accent-light);
+    }
+    .modal-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .modal-bio {
+      font-size: 0.92rem;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      white-space: pre-wrap;
+    }
+
+    .modal-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .modal-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+
+    .modal-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+    .modal-links .link-btn { font-size: 0.85rem; padding: 7px 16px; }
+
+    /* Card clickable */
+    .card { cursor: pointer; }
+    .card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
     @media (max-width: 480px) {
       header { padding: 48px 16px 36px; }
       .lang-toggle { top: 12px; right: 12px; }
       main { padding: 28px 14px 48px; }
       .cta-banner { padding: 28px 20px; }
+      .modal-body { padding: 18px 18px 22px; }
     }
   </style>
 </head>
@@ -367,6 +473,28 @@
     <a class="cta-btn" href="mailto:jonah6313@gmail.com" data-i18n="ctaBtn">Contact the Instructor</a>
   </div>
 </main>
+
+<!-- ── STUDENT MODAL ─────────────────────────────────────────── -->
+<div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+  <div class="modal" id="modal">
+    <div class="modal-top" id="modal-top"></div>
+    <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    <div class="modal-body">
+      <div class="modal-avatar-row">
+        <img class="modal-avatar" id="modal-avatar" src="" alt="" loading="lazy" />
+        <div>
+          <div class="modal-name" id="modal-name"></div>
+          <span class="badge" id="modal-badge"></span>
+        </div>
+      </div>
+      <div class="modal-section-label" id="modal-bio-label">About</div>
+      <div class="modal-bio" id="modal-bio"></div>
+      <div class="modal-section-label" id="modal-skills-label">Skills</div>
+      <div class="modal-skills" id="modal-skills"></div>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </div>
+</div>
 
 <footer>
   <span data-i18n="footer">Built with ❤️ to help Filipino CS students find better opportunities in Taiwan.</span>
@@ -436,7 +564,8 @@
     });
     const grid = document.getElementById("students-grid");
     if (grid.style.display !== "none" && grid.dataset.students) {
-      grid.innerHTML = JSON.parse(grid.dataset.students).map(buildCard).join("");
+      _modalStudents = JSON.parse(grid.dataset.students);
+      grid.innerHTML = _modalStudents.map((s, i) => buildCard(s, i)).join("");
     }
   }
 
@@ -465,19 +594,66 @@
   const ICON_LINK   = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V7.414l-7.293 7.293a1 1 0 0 1-1.414-1.414L15.586 6H14a1 1 0 0 1-1-1zM5 7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4a1 1 0 1 1 2 0v4a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h4a1 1 0 1 1 0 2H5z"/></svg>`;
   const ICON_MAIL   = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9.236l8 5 8-5V18z"/></svg>`;
 
-  function buildCard(s) {
+  /* ── MODAL LOGIC ─────────────────────────────────────────────── */
+  let _modalStudents = [];
+
+  function openModal(idx) {
+    const s = _modalStudents[idx];
+    if (!s) return;
+    const t = TRANSLATIONS[currentLang];
+    const cls = areaClass(s.area);
+    const avatar = s.github
+      ? `https://avatars.githubusercontent.com/${encodeURIComponent(s.github)}?s=400`
+      : `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`;
+
+    document.getElementById("modal-top").className = `modal-top top-${cls}`;
+    const av = document.getElementById("modal-avatar");
+    av.src = avatar; av.alt = s.name;
+    av.onerror = () => { av.src = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`; };
+    document.getElementById("modal-name").textContent = s.name;
+    const badge = document.getElementById("modal-badge");
+    badge.textContent = areaLabel(s.area);
+    badge.className = `badge area-${cls}`;
+    document.getElementById("modal-bio-label").textContent = currentLang === "zh" ? "自我介紹" : "About";
+    document.getElementById("modal-bio").textContent = s.bio || "";
+    document.getElementById("modal-skills-label").textContent = currentLang === "zh" ? "技能" : "Skills";
+    document.getElementById("modal-skills").innerHTML = (Array.isArray(s.skills) ? s.skills : [])
+      .map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
+    const githubBtn    = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
+    const emailBtn     = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICON_MAIL} ${t.btnEmail}</a>` : "";
+    document.getElementById("modal-links").innerHTML = githubBtn + portfolioBtn + emailBtn;
+
+    const backdrop = document.getElementById("modal-backdrop");
+    backdrop.classList.add("open");
+    document.body.style.overflow = "hidden";
+    document.getElementById("modal-close").focus();
+  }
+
+  function closeModal() {
+    document.getElementById("modal-backdrop").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  document.getElementById("modal-close").addEventListener("click", closeModal);
+  document.getElementById("modal-backdrop").addEventListener("click", e => {
+    if (e.target === document.getElementById("modal-backdrop")) closeModal();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+  function buildCard(s, idx) {
     const t = TRANSLATIONS[currentLang];
     const cls = areaClass(s.area);
     const avatar = s.github
       ? `https://avatars.githubusercontent.com/${encodeURIComponent(s.github)}?s=200`
       : `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`;
     const skillTags = (Array.isArray(s.skills) ? s.skills : []).map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
-    const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
-    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
-    const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICON_MAIL} ${t.btnEmail}</a>` : "";
+    const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICOL�GITHUB} ${t.btnGithub}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
+    const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}" onclick="event.stopPropagation()">${ICOL�MAIL} ${t.btnEmail}</a>` : "";
     const bioHtml     = s.bio       ? `<p class="card-bio">${escHtml(s.bio)}</p>` : "";
     return `
-      <div class="card">
+      <div class="card" tabindex="0" onclick="openModal(${idx})" onkeydown="if(event.key==='Enter'||event.key===' ')openModal(${idx})">
         <div class="card-top top-${cls}"></div>
         <div class="card-body">
           <div class="card-avatar-row">
@@ -501,11 +677,12 @@
   function escAttr(s) { return escHtml(s); }
 
   function renderStudents(students) {
+    _modalStudents = students;
     const grid = document.getElementById("students-grid");
     document.getElementById("status-msg").style.display = "none";
     grid.style.display = "grid";
     grid.dataset.students = JSON.stringify(students);
-    grid.innerHTML = students.map(buildCard).join("");
+    grid.innerHTML = students.map((s, i) => buildCard(s, i)).join("");
   }
 
   function parseCsv(text) {
