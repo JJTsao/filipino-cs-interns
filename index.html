@@ -205,6 +205,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .badges-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
     .badge {
       display: inline-block;
       font-size: 0.72rem;
@@ -467,7 +468,7 @@
     <h2 data-i18n="ctaTitle">Interested in working with them?</h2>
     <p data-i18n-html="ctaDesc">
       Click the email icon on any student's card to reach out directly.
-      They are available for internships starting <strong>August 2025</strong>
+      They are available for internships starting <strong>September 2026</strong>
       and are based in Taiwan.
     </p>
     <a class="cta-btn" href="mailto:jonah6313@gmail.com" data-i18n="ctaBtn">Contact the Instructor</a>
@@ -484,7 +485,10 @@
         <img class="modal-avatar" id="modal-avatar" src="" alt="" loading="lazy" />
         <div>
           <div class="modal-name" id="modal-name"></div>
-          <span class="badge" id="modal-badge"></span>
+          <div class="badges-row">
+            <span class="badge" id="modal-badge"></span>
+            <span class="badge" id="modal-badge2" style="display:none;"></span>
+          </div>
         </div>
       </div>
       <div class="modal-section-label" id="modal-bio-label">About</div>
@@ -519,7 +523,7 @@
       noStudents:  "No student profiles submitted yet. Check back soon!",
       errorMsg:    "Could not load student data. Make sure the sheet is published publicly.",
       ctaTitle:    "Interested in working with them?",
-      ctaDesc:     "Click the email icon on any student's card to reach out directly. They are available for internships starting <strong>August 2025</strong> and are based in Taiwan.",
+      ctaDesc:     "Click the email icon on any student's card to reach out directly. They are available for internships starting <strong>September 2026</strong> and are based in Taiwan.",
       ctaBtn:      "Contact the Instructor",
       footer:      "Built with ❤️ to help Filipino CS students find better opportunities in Taiwan.",
       btnGithub: "GitHub", btnPortfolio: "Portfolio", btnEmail: "Email",
@@ -538,7 +542,7 @@
       noStudents:  "目前尚無學生填寫資料，請稍後再回來查看！",
       errorMsg:    "無法載入學生資料，請確認試算表已設為公開發布。",
       ctaTitle:    "有興趣合作嗎？",
-      ctaDesc:     "點擊任何學生卡片上的 Email 圖示即可直接聯絡。他們預計從 <strong>2025 年 8 月</strong>開始實習，目前在台灣。",
+      ctaDesc:     "點擊任何學生卡片上的 Email 圖示即可直接聯絡。他們預計從 <strong>2026 年 9 月</strong>開始實習，目前在台灣。",
       ctaBtn:      "聯絡授課講師",
       footer:      "為菲律賓資工學生在台灣尋找更好的機會 ❤️",
       btnGithub: "GitHub", btnPortfolio: "作品集", btnEmail: "寄信",
@@ -570,12 +574,12 @@
   }
 
   const DEMO_STUDENTS = [
-    { name: "Maria Santos",   github: "mariasantos",  skills: ["Python", "Linux", "Wireshark", "Networking"],   area: "Cybersecurity",         portfolio: "",                               email: "maria@example.com",  bio: "Passionate about ethical hacking and network security. Completed CTF competitions and self-study on penetration testing." },
-    { name: "Juan dela Cruz", github: "juandelacruz", skills: ["Unity", "C#", "Blender", "Unreal Engine"],       area: "Game Dev / 3D Modeling", portfolio: "https://juanportfolio.example.com", email: "juan@example.com",   bio: "Created two indie games as side projects. Loves building immersive 3D environments and game mechanics." },
-    { name: "Ana Reyes",      github: "anareyes",     skills: ["React", "Node.js", "TypeScript", "PostgreSQL"],  area: "Web Development",        portfolio: "https://anaportfolio.example.com", email: "ana@example.com",    bio: "Full-stack developer who has built several web apps. Enjoys clean UI design and scalable backend architecture." },
-    { name: "Carlo Mendoza",  github: "carlomendoza", skills: ["Cisco", "Windows Server", "Linux", "VMware"],    area: "IT / Networking",        portfolio: "",                               email: "carlo@example.com",  bio: "Hands-on experience with network configuration and server administration. Studying for CCNA certification." },
-    { name: "Sophia Garcia",  github: "sophiagarcia", skills: ["Python", "TensorFlow", "SQL", "Pandas"],         area: "Data Science / AI",      portfolio: "https://sophiads.example.com",    email: "sophia@example.com", bio: "Built machine learning models for class projects. Interested in NLP and data visualization." },
-    { name: "Miguel Torres",  github: "migueltorres", skills: ["Flutter", "Dart", "Firebase", "Android"],        area: "Mobile Development",     portfolio: "",                               email: "miguel@example.com", bio: "Developed a mobile app for campus announcements. Comfortable with both Android and cross-platform development." },
+    { name: "Maria Santos",   github: "mariasantos",  skills: ["Python", "Linux", "Wireshark", "Networking"],   area: "Cybersecurity",          area2: "IT / Networking",        portfolio: "",                               email: "maria@example.com",  bio: "Passionate about ethical hacking and network security. Completed CTF competitions and self-study on penetration testing." },
+    { name: "Juan dela Cruz", github: "juandelacruz", skills: ["Unity", "C#", "Blender", "Unreal Engine"],       area: "Game Dev / 3D Modeling", area2: "Software Development",   portfolio: "https://juanportfolio.example.com", email: "juan@example.com",   bio: "Created two indie games as side projects. Loves building immersive 3D environments and game mechanics." },
+    { name: "Ana Reyes",      github: "anareyes",     skills: ["React", "Node.js", "TypeScript", "PostgreSQL"],  area: "Web Development",        area2: "Mobile Development",     portfolio: "https://anaportfolio.example.com", email: "ana@example.com",    bio: "Full-stack developer who has built several web apps. Enjoys clean UI design and scalable backend architecture." },
+    { name: "Carlo Mendoza",  github: "carlomendoza", skills: ["Cisco", "Windows Server", "Linux", "VMware"],    area: "IT / Networking",        area2: "Cybersecurity",          portfolio: "",                               email: "carlo@example.com",  bio: "Hands-on experience with network configuration and server administration. Studying for CCNA certification." },
+    { name: "Sophia Garcia",  github: "sophiagarcia", skills: ["Python", "TensorFlow", "SQL", "Pandas"],         area: "Data Science / AI",      area2: "Web Development",        portfolio: "https://sophiads.example.com",    email: "sophia@example.com", bio: "Built machine learning models for class projects. Interested in NLP and data visualization." },
+    { name: "Miguel Torres",  github: "migueltorres", skills: ["Flutter", "Dart", "Firebase", "Android"],        area: "Mobile Development",     area2: "Software Development",   portfolio: "",                               email: "miguel@example.com", bio: "Developed a mobile app for campus announcements. Comfortable with both Android and cross-platform development." },
   ];
 
   function areaClass(area) {
@@ -614,13 +618,22 @@
     const badge = document.getElementById("modal-badge");
     badge.textContent = areaLabel(s.area);
     badge.className = `badge area-${cls}`;
+    const badge2 = document.getElementById("modal-badge2");
+    if (s.area2) {
+      const cls2 = areaClass(s.area2);
+      badge2.textContent = areaLabel(s.area2);
+      badge2.className = `badge area-${cls2}`;
+      badge2.style.display = "";
+    } else {
+      badge2.style.display = "none";
+    }
     document.getElementById("modal-bio-label").textContent = currentLang === "zh" ? "自我介紹" : "About";
     document.getElementById("modal-bio").textContent = s.bio || "";
     document.getElementById("modal-skills-label").textContent = currentLang === "zh" ? "技能" : "Skills";
     document.getElementById("modal-skills").innerHTML = (Array.isArray(s.skills) ? s.skills : [])
       .map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
     const githubBtn    = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
-    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICON_LINK} ${t.btnPortFolio}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
     const emailBtn     = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICON_MAIL} ${t.btnEmail}</a>` : "";
     document.getElementById("modal-links").innerHTML = githubBtn + portfolioBtn + emailBtn;
 
@@ -644,13 +657,15 @@
   function buildCard(s, idx) {
     const t = TRANSLATIONS[currentLang];
     const cls = areaClass(s.area);
+    const cls2 = s.area2 ? areaClass(s.area2) : null;
+    const badge2Html = cls2 ? `<span class="badge area-${cls2}">${escHtml(areaLabel(s.area2))}</span>` : "";
     const avatar = s.github
       ? `https://avatars.githubusercontent.com/${encodeURIComponent(s.github)}?s=200`
       : `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`;
     const skillTags = (Array.isArray(s.skills) ? s.skills : []).map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
     const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
-    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_LINK} ${t.btnPortFolio}</a>` : "";
-    const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}" onclick="event.stopPropagation()">${ICON_MAIL} ${t.btnEmail}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
+    const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}" onclick="event.stopPropagation()">${ICO_MAIL} ${t.btnEmail}</a>` : "";
     const bioHtml     = s.bio       ? `<p class="card-bio">${escHtml(s.bio)}</p>` : "";
     return `
       <div class="card" tabindex="0" onclick="openModal(${idx})" onkeydown="if(event.key==='Enter'||event.key===' ')openModal(${idx})">
@@ -661,7 +676,9 @@
               onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff'" />
             <div class="card-name-block">
               <div class="card-name">${escHtml(s.name)}</div>
-              <span class="badge area-${cls}">${escHtml(areaLabel(s.area))}</span>
+              <div class="badges-row">
+                <span class="badge area-${cls}">${escHtml(areaLabel(s.area))}</span>${badge2Html}
+              </div>
             </div>
           </div>
           ${bioHtml}
@@ -701,7 +718,9 @@
   }
 
   function sheetRowToStudent(row) {
-    return { name: (row[1]||"").trim(), github: (row[2]||"").trim(), skills: (row[3]||"").split(",").map(s=>s.trim()).filter(Boolean), area: (row[4]||"").trim(), portfolio: (row[5]||"").trim(), email: (row[6]||"").trim(), bio: (row[7]||"").trim() };
+    // col[0]=Timestamp, [1]=name, [2]=github, [3]=skills,
+    // [4]=area, [5]=area2, [6]=portfolio, [7]=email, [8]=bio
+    return { name: (row[1]||"").trim(), github: (row[2]||"").trim(), skills: (row[3]||"").split(",").map(s=>s.trim()).filter(Boolean), area: (row[4]||"").trim(), area2: (row[5]||"").trim(), portfolio: (row[6]||"").trim(), email: (row[7]||"").trim(), bio: (row[8]||"").trim() };
   }
 
   async function init() {
