@@ -632,8 +632,8 @@
     document.getElementById("modal-skills").innerHTML = (Array.isArray(s.skills) ? s.skills : [])
       .map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
     const githubBtn    = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
-    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICO_LINK} ${t.btnPortfolio}</a>` : "";
-    const emailBtn     = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICO_MAIL} ${t.btnEmail}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
+    const emailBtn     = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICON_MAIL} ${t.btnEmail}</a>` : "";
     document.getElementById("modal-links").innerHTML = githubBtn + portfolioBtn + emailBtn;
 
     const backdrop = document.getElementById("modal-backdrop");
