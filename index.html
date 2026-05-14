@@ -662,7 +662,7 @@
       ? `https://avatars.githubusercontent.com/${encodeURIComponent(s.github)}?s=200`
       : `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`;
     const skillTags = (Array.isArray(s.skills) ? s.skills : []).map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
-    const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICO_GITHUB} ${t.btnGithub}</a>` : "";
+    const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
     const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_LINK} ${t.btnPortfolio}|/a>` : "";
     const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}" onclick="event.stopPropagation()">${ICON_MAIL} ${t.btnEmail}</a>` : "";
     const bioHtml     = s.bio       ? `<p class="card-bio">${escHtml(s.bio)}</p>` : "";
