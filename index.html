@@ -526,6 +526,7 @@
       ctaDesc:     "Click the email icon on any student's card to reach out directly. They are available for internships starting <strong>September 2026</strong> and are based in Taiwan.",
       ctaBtn:      "Contact the Instructor",
       footer:      "Built with ❤️ to help Filipino CS students find better opportunities in Taiwan.",
+      areasLabel: "Interest Areas",
       btnGithub: "GitHub", btnPortfolio: "Portfolio", btnEmail: "Email",
       areas: { cyber: "Cybersecurity", game: "Game Dev / 3D", web: "Web Development", mobile: "Mobile Dev", it: "IT / Networking", data: "Data Science / AI", software: "Software Dev" }
     },
@@ -545,6 +546,7 @@
       ctaDesc:     "點擊任何學生卡片上的 Email 圖示即可直接聯絡。他們預計從 <strong>2026 年 9 月</strong>開始實習，目前在台灣。",
       ctaBtn:      "聯絡授課講師",
       footer:      "為菲律賓資工學生在台灣尋找更好的機會 ❤️",
+      areasLabel: "興趣領域",
       btnGithub: "GitHub", btnPortfolio: "作品集", btnEmail: "寄信",
       areas: { cyber: "資訊安全", game: "遊戲開發 / 3D", web: "網頁開發", mobile: "行動應用開發", it: "IT / 網路", data: "資料科學 / AI", software: "軟體開發" }
     }
@@ -675,6 +677,7 @@
               onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff'" />
             <div class="card-name-block">
               <div class="card-name">${escHtml(s.name)}</div>
+              <div style="font-size:0.68rem;color:var(--muted);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-top:6px;margin-bottom:3px;">${t.areasLabel}</div>
               <div class="badges-row">
                 <span class="badge area-${cls}">${escHtml(areaLabel(s.area))}</span>${badge2Html}
               </div>
