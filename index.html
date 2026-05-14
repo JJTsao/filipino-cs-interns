@@ -115,12 +115,16 @@
       margin: 0 auto 24px;
     }
     .header-pills {
-      display: grid;
-      grid-template-columns: repeat(3, max-content);
-      justify-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .header-pills-row {
+      display: flex;
       gap: 6px;
       justify-content: center;
-      margin-top: 8px;
     }
     .header-pill {
       background: rgba(255,255,255,0.12);
@@ -446,12 +450,16 @@
       We're looking for tech internship opportunities — <strong>any tech role is welcome</strong>.
     </p>
     <div class="header-pills">
-      <span class="header-pill" data-i18n="pill1">💻 Cybersecurity</span>
-      <span class="header-pill" data-i18n="pill2">🎮 Game Dev / 3D</span>
-      <span class="header-pill" data-i18n="pill3">🌐 Web Development</span>
-      <span class="header-pill" data-i18n="pill4">📱 Mobile Dev</span>
-      <span class="header-pill" data-i18n="pill5">🔧 IT / Networking</span>
-      <span class="header-pill" data-i18n="pill6">🤖 Data / AI</span>
+      <div class="header-pills-row">
+        <span class="header-pill" data-i18n="pill1">💻 Cybersecurity</span>
+        <span class="header-pill" data-i18n="pill2">🎮 Game Dev / 3D</span>
+        <span class="header-pill" data-i18n="pill3">🌐 Web Development</span>
+      </div>
+      <div class="header-pills-row">
+        <span class="header-pill" data-i18n="pill4">📱 Mobile Dev</span>
+        <span class="header-pill" data-i18n="pill5">🔧 IT / Networking</span>
+        <span class="header-pill" data-i18n="pill6">🤖 Data / AI</span>
+      </div>
     </div>
   </div>
 </header>
