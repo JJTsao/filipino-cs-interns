@@ -506,7 +506,7 @@
 
 <script>
   const CONFIG = {
-    SHEET_ID: "2PACX-1vQ1N38159PcbRQi9LMXM6N-sqo5hulBpkKCChsAZFspctHQOSYj9LyR3A__DzJblY3nSmfHbwhTrbJ8",   // ← Google Sheet publish ID (from Publish to the web)
+    SHEET_ID: "2PACX-1vQJnBCoJ3w6fKWPX2lzgmNHq8QGrH7JkL3w6fy2IukBcleigy92bATCy8-mA_hn1AURXh07nRp0BhB5",   // ← Google Sheet publish ID (from Publish to the web)
   };
 
   const TRANSLATIONS = {
@@ -609,7 +609,6 @@
     const avatar = s.github
       ? `https://avatars.githubusercontent.com/${encodeURIComponent(s.github)}?s=400`
       : `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`;
-
     document.getElementById("modal-top").className = `modal-top top-${cls}`;
     const av = document.getElementById("modal-avatar");
     av.src = avatar; av.alt = s.name;
@@ -633,8 +632,8 @@
     document.getElementById("modal-skills").innerHTML = (Array.isArray(s.skills) ? s.skills : [])
       .map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
     const githubBtn    = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
-    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
-    const emailBtn     = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICON_MAIL} ${t.btnEmail}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener">${ICO_LINK} ${t.btnPortfolio}</a>` : "";
+    const emailBtn     = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}">${ICO_MAIL} ${t.btnEmail}</a>` : "";
     document.getElementById("modal-links").innerHTML = githubBtn + portfolioBtn + emailBtn;
 
     const backdrop = document.getElementById("modal-backdrop");
@@ -663,9 +662,9 @@
       ? `https://avatars.githubusercontent.com/${encodeURIComponent(s.github)}?s=200`
       : `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(s.name)}&backgroundColor=3949ab&textColor=ffffff`;
     const skillTags = (Array.isArray(s.skills) ? s.skills : []).map(sk => `<span class="skill-tag">${escHtml(sk.trim())}</span>`).join("");
-    const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_GITHUB} ${t.btnGithub}</a>` : "";
-    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_LINK} ${t.btnPortfolio}</a>` : "";
-    const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}" onclick="event.stopPropagation()">${ICO_MAIL} ${t.btnEmail}</a>` : "";
+    const githubBtn   = s.github    ? `<a class="link-btn" href="https://github.com/${encodeURIComponent(s.github)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICO_GITHUB} ${t.btnGithub}</a>` : "";
+    const portfolioBtn = s.portfolio ? `<a class="link-btn" href="${escAttr(s.portfolio)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${ICON_LINK} ${t.btnPortfolio}|/a>` : "";
+    const emailBtn    = s.email     ? `<a class="link-btn" href="mailto:${escAttr(s.email)}" onclick="event.stopPropagation()">${ICON_MAIL} ${t.btnEmail}</a>` : "";
     const bioHtml     = s.bio       ? `<p class="card-bio">${escHtml(s.bio)}</p>` : "";
     return `
       <div class="card" tabindex="0" onclick="openModal(${idx})" onkeydown="if(event.key==='Enter'||event.key===' ')openModal(${idx})">
