@@ -115,8 +115,8 @@
       margin: 0 auto 24px;
     }
     .header-pills {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
       gap: 6px;
       justify-content: center;
       margin-top: 8px;
@@ -128,7 +128,6 @@
       padding: 4px 10px;
       font-size: 0.78rem;
       color: rgba(255,255,255,0.9);
-      white-space: nowrap;
     }
 
     /* ── MAIN ─────────────────────────────────────────────────── */
