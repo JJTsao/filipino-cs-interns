@@ -732,7 +732,9 @@
   function sheetRowToStudent(row) {
     // col[0]=Timestamp, [1]=name, [2]=github, [3]=skills,
     // [4]=area, [5]=area2, [6]=portfolio, [7]=email, [8]=bio
-    return { name: (row[1]||"").trim(), github: (row[2]||"").trim(), skills: (row[3]||"").split(",").map(s=>s.trim()).filter(Boolean), area: (row[4]||"").trim(), area2: (row[5]||"").trim(), portfolio: (row[6]||"").trim(), email: (row[7]||"").trim(), bio: (row[8]||"").trim() };
+    const rawP = (row[6]||"").trim();
+    const normP = rawP && !/^https?:\/\//i.test(rawP) ? "https://" + rawP : rawP;
+    return { name: (row[1]||"").trim(), github: (row[2]||"").trim(), skills: (row[3]||"").split(",").map(s=>s.trim()).filter(Boolean), area: (row[4]||"").trim(), area2: (row[5]||"").trim(), portfolio: normP, email: (row[7]||"").trim(), bio: (row[8]||"").trim() };
   }
 
   async function init() {
